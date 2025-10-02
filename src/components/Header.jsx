@@ -1,17 +1,23 @@
 import { NavLink } from 'react-router-dom'
 
 export default function Header() {
-  const linkStyle = ({ isActive }) => ({
-    marginLeft: '1rem',
-    textDecoration: isActive ? 'underline' : 'none'
-  })
 
-return (
-    <header style={{ padding: '1rem', display: 'flex', justifyContent: 'space-between' }}>
-      <NavLink to="/" style={{ fontWeight: 800 }}>Kasa</NavLink>
-      <nav>
-        <NavLink to="/" style={linkStyle}>Accueil</NavLink>
-        <NavLink to="/a-propos" style={linkStyle}>À&nbsp;propos</NavLink>
+  return (
+    <header className="k-header">
+      <NavLink to="/" className="k-logo">Kasa</NavLink>
+      <nav className="k-nav">
+        <NavLink
+          to="/"
+          className={({ isActive }) => `k-link${isActive ? ' k-link-active' : ''}`}
+        >
+          Accueil
+        </NavLink>
+        <NavLink
+          to="/a-propos"
+          className={({ isActive }) => `k-link${isActive ? ' k-link-active' : ''}`}
+        >
+          À propos
+        </NavLink>
       </nav>
     </header>
   )

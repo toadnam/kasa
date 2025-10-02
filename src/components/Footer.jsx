@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer style={{ textAlign:'center', padding:'2rem', opacity:.7 }}>
+    <footer className="k-footer">
       © Kasa — 2025
     </footer>
   )
