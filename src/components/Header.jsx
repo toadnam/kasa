@@ -1,10 +1,15 @@
 import { NavLink } from 'react-router-dom'
+import logo from '../../img/Logo.png'
 
 export default function Header() {
 
   return (
     <header className="k-header">
-      <NavLink to="/" className="k-logo">Kasa</NavLink>
+      {/* Logo cliquable vers la page d’accueil */}
+      <NavLink to="/" className="k-logo">
+        <img src={logo} alt="Kasa" className="k-logo__img" />
+      </NavLink>
+      
       <nav className="k-nav">
         <NavLink
           to="/"
