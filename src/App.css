@@ -530,25 +530,18 @@ body {
   flex: 1 1 auto;
 }
 
-.lodg-header__right {
-  flex: 0 0 auto;
-  display: grid;
-  justify-items: end;
-  align-items: center;
-  gap: 12px;
-}
 
 .lodg-title {
   margin: 0 0 6px;
   color: #ff6060;
-  font-weight: 600;
+  font-weight: 500;
   font-size: clamp(1.3rem, 2.2vw, 1.8rem);
   text-align: left;
 }
 
 .lodg-location {
   margin: 0 0 12px;
-  color: #666;
+  color: #000000;
   font-weight: 500;
   text-align: left;
 }
@@ -614,12 +607,12 @@ body {
 
 .lodg-collapses .collapse {
   max-width: none;
-  width: 100%;       
-  margin: 0;         
+  width: 100%;
+  margin: 0;
 }
 
 .lodg-collapses .collapse__btn {
-  width: 100%; 
+  width: 100%;
 }
 
 
@@ -673,32 +666,97 @@ body {
     display: none;
   }
 
+  .lodg-header {
+    display: block;
+    margin-bottom: 10px;
+  }
 
-.gallery__count {
-  display: none;
-}
+  .lodg-header__left {
+    grid-area: left;
+  }
 
-.lodg-header {
-  flex-direction: column;
-  gap: 16px;
-}
+  .host {
+    grid-area: host;
+    justify-self: end;
+  }
 
-.lodg-header__right {
-  justify-items: start;
-}
+  .lodg-title {
+    margin: 0 0 6px;
+    font-weight: 500;
+    font-size: clamp(22px, 6vw, 26px);
+    line-height: 1.15;
+    text-align: left;
+  }
 
-.host__avatar {
-  width: 48px;
-  height: 48px;
-}
+  .lodg-location {
+    margin: 0 0 12px;
+    color: #000;
+    font-weight: 500;
+    text-align: left;
+  }
 
-.rating__star {
-  width: 16px;
-  height: 16px;
-}
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 12px;
+    row-gap: 10px;
+    justify-content: flex-start;
+    margin-bottom: 14px;
+  }
 
-.lodg-collapses {
-  grid-template-columns: 1fr;
-  gap: 18px;
-}
+  .tag {
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    background: #ff6060;
+    color: #fff;
+  }
+
+  .lodg-metaRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .host {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .host__name {
+    text-align: right;
+    font-weight: 600;
+    color: #FF6060;
+    max-width: 110px;
+    line-height: 1.15;
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    min-width: 98px;
+    height: 18px;
+  }
+
+  .host__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .rating__star {
+    width: 18px;
+    height: 18px;
+  }
+
+  .lodg-collapses {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
 }

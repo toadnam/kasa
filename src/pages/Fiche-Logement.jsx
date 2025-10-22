@@ -161,9 +161,9 @@ export default function Logement() {
           <TagList tags={tags} />
         </div>
 
-        <div className="lodg-header__right">
-          <HostCard host={host} />
+        <div className="lodg-metaRow">
           <RatingStars value={rating} />
+          <HostCard host={host} />
         </div>
       </header>
 
