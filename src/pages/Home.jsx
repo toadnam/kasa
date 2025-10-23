@@ -1,58 +1,31 @@
-import bannerImg from '../../img/Image_source_1.png'
+import Banner from "../components/Banner";
+import PropertiesGrid from "../components/PropertiesGrid";
+import { useProperties } from "../hooks/useProperties";
+
+import bannerImg from "../../img/Image_source_1.png";
 
 export default function Home() {
+  const { data, status, error } = useProperties();
+
   return (
+    <main className="home k-main">
+      <Banner
+        image={bannerImg}
+        title="Chez vous, partout et ailleurs"
+      />
 
-    <main className="home">
-
-      {/* --- Section Bannière --- */}
-      <section className="home-banner">
-        <img
-          src={bannerImg}
-          alt="Paysage en arrière-plan"
-          className="home-banner__img"
+      {status === "loading" && <p aria-live="polite">Chargement…</p>}
+      {status === "error" && (
+        <p role="alert">
+          Impossible de charger les propriétés {String(error?.message || "")}
+        </p>
+      )}
+      {status === "success" && (
+        <PropertiesGrid
+          items={data}
+          onSelect={(p) => {}}
         />
-        <div className="home-banner__overlay">
-          <h1>Chez vous, partout et ailleurs</h1>
-        </div>
-      </section>
-
-      {/* --- Section Galerie --- */}
-      <section className="home-gallery">
-        <div className="home-gallery__grid">
-          {/* Cartes provisoires */}
-          <article className="card">
-            <div className="card__img"></div>
-            <div className="card__title">Appartement 2 pièces avec vue sur la mer</div>
-          </article>
-
-          <article className="card">
-            <div className="card__img"></div>
-            <div className="card__title">Titre de la location</div>
-          </article>
-
-          <article className="card">
-            <div className="card__img"></div>
-            <div className="card__title">Titre de la location</div>
-          </article>
-
-          <article className="card">
-            <div className="card__img"></div>
-            <div className="card__title">Titre de la location</div>
-          </article>
-
-          <article className="card">
-            <div className="card__img"></div>
-            <div className="card__title">Titre de la location</div>
-          </article>
-
-          <article className="card">
-            <div className="card__img"></div>
-            <div className="card__title">Titre de la location</div>
-          </article>
-        </div>
-      </section>
-
+      )}
     </main>
-  )
+  );
 }
