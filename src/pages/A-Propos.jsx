@@ -38,10 +38,10 @@ export default function APropos() {
       
             <Banner image={bannerImg} title="" />
 
-      <div className="apropos__list">
-        {SECTIONS.map(({ title, text }) => (
-          <Collapse key={title} title={title}>
-            <p>{text}</p>
+      <div className="apropos_list">
+        {SECTIONS.map(( section, index ) => (
+          <Collapse key={index} title={section.title}>
+            <p>{section.text}</p>
           </Collapse>
         ))}
       </div>
