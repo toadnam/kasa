@@ -8,17 +8,17 @@ export default function Collapse({ title, children, defaultOpen = false }) {
 
   return (
     <section className="collapse">
-      <h3 className="collapse__heading">
+      <h3 className="collapse_heading">
         <button
           id={btnId}
-          className="collapse__btn"
+          className="collapse_btn"
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => setOpen(o => !o)}
         >
-          <span className="collapse__title">{title}</span>
+          <span className="collapse_title">{title}</span>
           <svg
-            className={`collapse__chevron ${open ? "is-open" : ""}`}
+            className={`collapse_chevron ${open ? "is-open" : ""}`}
             width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"
           >
             <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="2" />
@@ -30,9 +30,9 @@ export default function Collapse({ title, children, defaultOpen = false }) {
         id={panelId}
         role="region"
         aria-labelledby={btnId}
-        className={`collapse__panel ${open ? "is-open" : ""}`}
+        className={`collapse_panel ${open ? "is-open" : ""}`}
       >
-        <div className="collapse__content">{children}</div>
+        <div className="collapse_content">{children}</div>
       </div>
     </section>
   );

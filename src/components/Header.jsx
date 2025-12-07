@@ -7,7 +7,7 @@ export default function Header() {
     <header className="k-header">
       {/* Logo cliquable vers la page d’accueil */}
       <NavLink to="/" className="k-logo">
-        <img src={logo} alt="Kasa" className="k-logo__img" />
+        <img src={logo} alt="Kasa" className="k-logo_img" />
       </NavLink>
       
       <nav className="k-nav">

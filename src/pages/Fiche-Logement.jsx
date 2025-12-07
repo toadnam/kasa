@@ -30,7 +30,7 @@ function RatingStars({ value = 0 }) {
           key={i}
           src={i < rating ? starActive : starInactive}
           alt={i < rating ? "Étoile pleine" : "Étoile vide"}
-          className="rating__star"
+          className="rating_star"
         />
       ))}
     </div>
@@ -42,12 +42,12 @@ function HostCard({ host }) {
   const [first, ...rest] = (host.name || "").split(" ");
   return (
     <div className="host">
-      <div className="host__name">
+      <div className="host_name">
         <span>{first}</span> {rest.join(" ")}
       </div>
       {host.picture && (
         <img
-          className="host__avatar"
+          className="host_avatar"
           src={host.picture}
           alt={`Photo de ${host.name}`}
           loading="lazy"
@@ -61,22 +61,22 @@ export default function Logement() {
   const { id } = useParams();
   const { data, status, error } = useProperties();
 
-  // trouver le logement demandé
+  
   const item = useMemo(() => (data || []).find(p => String(p.id) === String(id)), [data, id]);
 
-  // forcer affichage Ville,Region
+  
   const locationRaw = item?.location ?? "";
   const niceLocation = useMemo(() => {
     const [region, city] = String(locationRaw).split(" - ").map(s => s.trim());
     return (city && region) ? `${city}, ${region}` : String(locationRaw);
   }, [locationRaw]);
 
-  // carroussel
+  
   const pictures = item?.pictures ?? [];
   const [idx, setIdx] = useState(0);
   const hasMany = pictures.length > 1;
 
-  useEffect(() => { setIdx(0); }, [id, pictures.length]); //pour remettre à zéro si on change de logement 
+  useEffect(() => { setIdx(0); }, [id, pictures.length]);
 
   const goNext = useCallback(() => {
     if (!hasMany) return;
@@ -126,28 +126,28 @@ export default function Logement() {
         tabIndex={0}
       >
         {pictures[idx] && (
-          <img className="gallery__img" src={pictures[idx]} alt={`${title} – photo ${idx + 1}`} />
+          <img className="gallery_img" src={pictures[idx]} alt={`${title} – photo ${idx + 1}`} />
         )}
 
         {hasMany && (
           <>
             <button
-              className="gallery__btn gallery__btn--prev"
+              className="gallery_btn gallery_btn--prev"
               onClick={goPrev}
               aria-label="Image précédente"
             >
-              <img src={arrowPrev} alt="" className="gallery__arrow" />
+              <img src={arrowPrev} alt="" className="gallery_arrow" />
             </button>
 
             <button
-              className="gallery__btn gallery__btn--next"
+              className="gallery_btn gallery_btn--next"
               onClick={goNext}
               aria-label="Image suivante"
             >
-              <img src={arrowNext} alt="" className="gallery__arrow" />
+              <img src={arrowNext} alt="" className="gallery_arrow" />
             </button>
 
-            <div className="gallery__count" aria-live="polite">
+            <div className="gallery_count" aria-live="polite">
               {idx + 1}/{pictures.length}
             </div>
           </>
@@ -155,15 +155,15 @@ export default function Logement() {
       </div>
 
       <header className="lodg-header">
-        <div className="lodg-header__left">
+        <div className="lodg-header_left">
           <h2 className="lodg-title">{title}</h2>
           <p className="lodg-location">{niceLocation}</p>
           <TagList tags={tags} />
         </div>
 
         <div className="lodg-metaRow">
-          <RatingStars value={rating} />
           <HostCard host={host} />
+          <RatingStars value={rating} />
         </div>
       </header>
 
