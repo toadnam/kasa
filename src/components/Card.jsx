@@ -5,6 +5,7 @@ export default function Card({ id, title, cover }) {
     return (
         <Link to={`/logement/${id}`} className="card">
             {cover && <img className="card_img" src={cover} alt={title} />}
+            <div className="card_overlay" />
             <div className="card_title">{title}</div>
         </Link>
     );
